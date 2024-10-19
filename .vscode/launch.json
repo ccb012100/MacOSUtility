@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MacOSUtility}",
+            "name": "Debug MacOSUtility",
+            "program": "${workspaceFolder:MacOSUtility}/.build/debug/MacOSUtility",
+            "preLaunchTask": "swift: Build Debug MacOSUtility"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MacOSUtility}",
+            "name": "Release MacOSUtility",
+            "program": "${workspaceFolder:MacOSUtility}/.build/release/MacOSUtility",
+            "preLaunchTask": "swift: Build Release MacOSUtility"
+        }
+    ]
+}
