@@ -13,7 +13,7 @@ This can be useful in combination with a keyboard manager utility to bind an app
 For example, using [`skhd`](https://github.com/koekeishiya/skhd):
 
 ```zsh
-# Toggle WezTerm with ⇧⌘C
+# Toggle WezTerm with ⇧⌘T
 shift + cmd - t: MacOSUtility toggle com.github.wez.wezterm
 # Toggle Visual Studio Code with ⇧⌘A
 shift + cmd - a: MacOSUtility toggle com.microsoft.VSCode
