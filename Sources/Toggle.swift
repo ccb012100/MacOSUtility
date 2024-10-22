@@ -1,12 +1,12 @@
 import AppKit
 import Logging
 
-/// Toggle an Application between hidden and active
+/// Toggle an Application by its Bundle ID
 ///
 /// - If the Application is the active Application, hide it.
 /// - If the Application is running but not the active Application, bring it to the front.
 /// - If the Application is not running, launch it.
-func toggleApp(named appName: String, withBundleId bundleId: String, withLogger logger: Logger) {
+func toggleApp(withBundleId bundleId: String, withLogger logger: Logger) {
     let app = NSWorkspace.shared.runningApplications.first { $0.bundleIdentifier == bundleId }
 
     if app != nil {

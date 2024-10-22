@@ -20,10 +20,7 @@ extension CLI {
             abstract:
                 "Toggle an application (hide it if it's active; otherwise launch/activate it).")
 
-        @Option(name: .shortAndLong, help: "The name of the Application.")
-        var name: String
-
-        @Option(name: .shortAndLong, help: "The Bundle ID of the Application.")
+        @Argument(help: "The Bundle ID of the Application.")
         var bundleId: String
 
         @OptionGroup var options: Options
@@ -34,7 +31,7 @@ extension CLI {
             var logger: Logger = Logger(label: "com.github.ccb012100.MacOSUtility.CLI")
             if options.verbose { logger.logLevel = .debug }
 
-            toggleApp(named: name, withBundleId: bundleId, withLogger: logger)
+            toggleApp(withBundleId: bundleId, withLogger: logger)
         }
     }
 }

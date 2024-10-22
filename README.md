@@ -14,7 +14,7 @@ For example, using [`skhd`](https://github.com/koekeishiya/skhd):
 
 ```zsh
 # Toggle WezTerm with ⇧⌘C
-shift + cmd - t: MacOSUtility toggle --name=WezTerm --bundle-id='com.github.wez.wezterm'
+shift + cmd - t: MacOSUtility toggle com.github.wez.wezterm
 # Toggle Visual Studio Code with ⇧⌘A
-shift + cmd - a: MacOSUtility toggle --name=Code --bundle-id='com.microsoft.VSCode'
+shift + cmd - a: MacOSUtility toggle com.microsoft.VSCode
 ```
