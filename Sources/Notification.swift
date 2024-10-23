@@ -30,5 +30,5 @@ func renderNotification(message: String, showAsError: Bool) {
         &error,
         elements as CFDictionary)
 
-    if error != 0 { fatalError("Unable to display notification dialog") }
+    if error != 0 { fatalError("Unable to display notification dialog. error: \(error)") }
 }

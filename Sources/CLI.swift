@@ -26,11 +26,10 @@ extension CLI {
         @OptionGroup var options: Options
 
         mutating func run() throws {
-            print("Toggle command called: \(self)")
-
             var logger: Logger = Logger(label: "com.github.ccb012100.MacOSUtility.CLI")
             if options.verbose { logger.logLevel = .debug }
 
+            logger.debug("Toggle command called: \(self)")
             toggleApp(withBundleId: bundleId, withLogger: logger)
         }
     }
