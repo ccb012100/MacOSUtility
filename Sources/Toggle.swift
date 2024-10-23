@@ -15,30 +15,36 @@ func toggleApp(withBundleId bundleId: String, withLogger logger: Logger) {
     let app = NSWorkspace.shared.runningApplications.first { $0.bundleIdentifier == bundleId }
 
     if app != nil {  // app is running
+        logger.debug("App is running")
         if app!.isActive {
             app!.hide()
             // TODO: for some reason, app.hide() always returns false
             // if !app!.hide() {
             //     logErrorAndNotify(
             //         logger,
-            //         withMessage: "Unable to hide app with Bundle Id \"\(bundleId)\"!")
+            //         withMessage: "Unable to hide application. Bundle Id: \"\(bundleId)\"!")
             // }
             return
         }
 
         if !app!.activate() {
             logErrorAndNotify(
-                logger, withMessage: "Unable to activate app with Bundle Id \"\(bundleId)\"!")
+                logger, withMessage: "Unable to activate application. Bundle Id: \"\(bundleId)\"!")
         }
     }
 
     // app is not running
+    logger.debug("App is NOT running")
+
     guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId)
     else {
         logErrorAndNotify(
-            logger, withMessage: "Unable to get application URL for Bundle Id \"\(bundleId)\"!")
+            logger, withMessage: "Unable to get application URL. Bundle Id: \"\(bundleId)\"!")
         return
     }
 
-    NSWorkspace.shared.openApplication(at: appURL, configuration: NSWorkspace.OpenConfiguration())
+    if !NSWorkspace.shared.open(appURL) {
+        logErrorAndNotify(
+            logger, withMessage: "Unable to open application. URL for Application: \"\(appURL)\"!")
+    }
 }
