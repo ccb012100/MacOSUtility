@@ -30,6 +30,8 @@ func toggleApp(withBundleId bundleId: String, withLogger logger: Logger) {
         if !app!.activate() {
             logErrorAndNotify(
                 logger, withMessage: "Unable to activate application. Bundle Id: \"\(bundleId)\"!")
+
+            return
         }
     }
 
